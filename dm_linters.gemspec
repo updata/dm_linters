@@ -15,8 +15,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/dm-production/dm_linters'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split('\x0')
-                                        .delete('\x0')
+  spec.files         = `git ls-files`.split("\n")
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rubocop'
