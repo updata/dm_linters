@@ -9,6 +9,16 @@ AllCops:
 Rails:
   Enabled: true
 
+#################### Metrics ###############################
+# Metricsの最大値(Max)デフォルト値をやや上げしている。
+# Rubocopのデフォルトだと、業務処理を書くには厳しすぎるため上げているが、
+# 数字に確たる根拠はない。
+# 参考) Rubocopのdefault.yml
+# https://raw.githubusercontent.com/bbatsov/rubocop/master/config/default.yml
+
+Metrics/AbcSize:
+  Max: 25
+
 # 以下のメソッドはパフォーマンスや可読性の観点からブロック行数が長くても良しと判断し、
 # メソッド名で除外設定をしている。
 # RailsのRouterよりnamespace/resource/resources
@@ -35,14 +45,26 @@ Metrics/BlockNesting:
 Metrics/ClassLength:
   CountComments: false
 
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+Metrics/LineLength:
+  Max: 120
+
 Metrics/MethodLength:
   CountComments: false
+  Max: 25
 
 Metrics/ModuleLength:
   CountComments: false
 
 Metrics/ParameterLists:
   CountKeywordArgs: true
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+#################### Style ###########################
 
 # 日本人向けプロダクトで日本語コメント禁止は厳しすぎるので。
 # また、sdocでYARD形式のコメントを書くため記号を許容したい。
@@ -58,6 +80,7 @@ Style/CaseIndentation:
 Style/CommentIndentation:
   Enabled: false
 
+# if文の中で代入する書き方と、if文の戻り値で代入する書き方のどちらも許容する。
 Style/ConditionalAssignment:
   Enabled: false
 
