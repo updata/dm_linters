@@ -3,8 +3,8 @@ AllCops:
   # TargetRubyVersion: x.x
   # TargetRailsVersion: x.x
   Exclude:
-    - './db/schema.rb'
-    - './db/migrate/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
 
 Rails:
   Enabled: true
