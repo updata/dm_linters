@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'db/migrate/**/*'
+    - 'node_modules/**/*'
 
 Rails:
   Enabled: true
