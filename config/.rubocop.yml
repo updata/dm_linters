@@ -5,6 +5,7 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'db/migrate/**/*'
+    - 'node_modules/**/*'
 
 Rails:
   Enabled: true
@@ -64,20 +65,31 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Max: 15
 
+#################### Layout ###########################
+
+# Caseに対してWhenをインデントしないこと。
+Layout/CaseIndentation:
+  IndentOneStep: false
+
+# CommentIndentationはシャープのインデント揃えをチェックするが、
+# 処理をコメントアウトした場合には処理自体のインデントを揃えた方が綺麗な場合があるためOFF。
+Layout/CommentIndentation:
+  Enabled: false
+
+# メソッドチェーンを書く際、ドットは次の行の先頭に書くこと。
+# irbやpryで実行しづらいデメリットはあるが、この方が可読性が高くコメントアウトもしやすいため。
+Layout/DotPosition:
+  EnforcedStyle: leading
+
+# 演算子の前後には半角スペースを入れること。
+Layout/SpaceAroundOperators:
+  AllowForAlignment: true
+
 #################### Style ###########################
 
 # 日本人向けプロダクトで日本語コメント禁止は厳しすぎるので。
 # また、sdocでYARD形式のコメントを書くため記号を許容したい。
 Style/AsciiComments:
-  Enabled: false
-
-# Caseに対してWhenをインデントしないこと。
-Style/CaseIndentation:
-  IndentOneStep: false
-
-# CommentIndentationはシャープのインデント揃えをチェックするが、
-# 処理をコメントアウトした場合には処理自体のインデントを揃えた方が綺麗な場合があるためOFF。
-Style/CommentIndentation:
   Enabled: false
 
 # if文の中で代入する書き方と、if文の戻り値で代入する書き方のどちらも許容する。
@@ -90,11 +102,6 @@ Style/ConditionalAssignment:
 Style/Documentation:
   Enabled: true
 
-# メソッドチェーンを書く際、ドットは次の行の先頭に書くこと。
-# irbやpryで実行しづらいデメリットはあるが、この方が可読性が高くコメントアウトもしやすいため。
-Style/DotPosition:
-  EnforcedStyle: leading
-
 # 文字列のフォーマットは、format/sprintf/percentで行うこと。
 Style/FormatString:
   SupportedStyles:
@@ -105,7 +112,3 @@ Style/FormatString:
 # ハッシュのキー指定方法はruby1.9の文法を利用し、ハッシュ内で統一すること。
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
-
-# 演算子の前後には半角スペースを入れること。
-Style/SpaceAroundOperators:
-  AllowForAlignment: true

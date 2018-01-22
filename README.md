@@ -31,6 +31,19 @@ And then execute by bundler:
 $ bundle exec rubocop
 ```
 
+### Side-CI
+
+Add these line to your `sideci.yml `:
+(cf.) https://docs.sideci.com/tools/rubocop.html#configuration-via-sideci.yml
+
+```yml
+linter:
+  rubocop:
+    gems:
+      - dm_linters
+    options:
+      config: './.rubocop.yml'
+```
 
 ## Contributing
 
