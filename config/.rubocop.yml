@@ -39,6 +39,7 @@ Metrics/BlockLength:
     - feature
     - context
     - shared_context
+    - scenario
 
 Metrics/BlockNesting:
   CountBlocks: false
