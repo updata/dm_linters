@@ -39,6 +39,8 @@ Metrics/BlockLength:
     - feature
     - context
     - shared_context
+  Exclude:
+    - 'spec/**/*'
 
 Metrics/BlockNesting:
   CountBlocks: false
